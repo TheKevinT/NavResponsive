@@ -1,0 +1,134 @@
+/*para pegar todo el contenido a los bordes de la pagina*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/*poner la lista home.. al lado derecho de LOGO*/
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    /*importamos taambien en css el tipo de letra*/
+    font-family: 'Poppins', sans-serif;
+    background-color: #008080;
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.nav-links {
+    /*letras home... se pongan en horizontal*/
+    display: flex;
+    justify-content: space-around;
+    /*separar las palabras*/
+    width: 30%;
+}
+
+
+/*se quiten los puntos que estan al lado de cada palabra*/
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/*añadir espacio a la derecha del nav*/
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+
+/*sirve para que sea la pagina responsive es decir se adecue a cualquier dispositivo*/
+
+@media screen and (max-width:1024px) {
+    .nav-links {
+        width: 60px;
+    }
+}
+
+
+/*para crear la parte del menu */
+
+@media screen and (max-width:768px) {
+    /*no scroll  */
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #008080;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+}
+
+
+/*para que funcione las lineas de la burger */
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
